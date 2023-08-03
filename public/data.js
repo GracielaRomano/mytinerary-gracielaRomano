@@ -1,4 +1,4 @@
-var data = [
+let data = [
     {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
     {id: 'america2', city: "New York", photo: "/img/america/newyork.jpg"},
     {id: 'america3', city: "Rio de Janeiro", photo: "/img/america/rioDeJaneiro.jpg"},

@@ -6,11 +6,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .container-nav{
+  display: flex;
+  justify-content: space-between;
   width: 1291px;
   height: 64px;
   margin-top: 32px;
-  margin-left: 219px;
-  margin-right: 219px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 /* cambiar tipo de letra */
 nav.navbar ul.navbar-nav li .nav-link  {
@@ -37,6 +39,7 @@ nav.navbar ul.navbar-nav li {
 	padding-left: 32px;
   font-size: 24px;
   font-weight: 700;
+  right: 0;
 }
 .logo-font{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -52,6 +55,65 @@ nav.navbar ul.navbar-nav li {
 .img-login{
 	width: 21px;
 	height: 20px;
+}
+/*----CAROUSEL----*/
+.container-carousel{
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 360px;
+  justify-content: center;
+}
+.btn-card{
+  position: absolute;
+  bottom:5px;
+  left:5px;
+  width: 30%;
+  height: 20px;
+  border-radius:10px;
+  color:white;
+  text-transform:uppercase;
+  font-size: 10px;
+}
+.card-carousel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 9rem;
+  margin: 3px;
+}
+.card-img{
+  width: 8.5rem;
+  height: 10rem;
+}
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow{
+  font-size: 30px;
+  font-weight: bold;
+}
+/*.img-carousel{
+  width: 25%;
+  padding: 2px;
+  margin: 2px;
+}
+.home-carousel{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5px;
+}
+.titulo-carousel{
+  font-size: 20px;
+}
+.card-carousel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aqua;
 }
 /*@media screen and (max-width: 1400px) {
   .container-nav{
@@ -71,11 +133,10 @@ nav.navbar ul.navbar-nav li {
 }
 /*-----HOME----*/
 .contenedor-home{
-  display: flex;
-  width: 1291px;
+  width: 1200px;
   height: 304px;
-  margin-top: 414px;
-  margin-left: 219px;
-  justify-content: space-between;
+  margin-top: 350px;
+  margin-left: 200px;
+  margin-right:200px;
   
 }
