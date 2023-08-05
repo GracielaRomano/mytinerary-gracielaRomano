@@ -1,8 +1,9 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
+import Arrows from '../components/Arrows';
 import CardPolaroid from "../components/CardPolaroid";
 
 export default function Carousel() {
+    
     let data = [
         {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
         {id: 'america2', city: "New York", photo: "/img/america/newyork.jpg"},
@@ -21,19 +22,43 @@ export default function Carousel() {
         {id: 'oceania3' , city: "Suva", photo: "/img/oceania/suva.jpg"},
         {id: 'oceania4' , city: "Wellington", photo: "/img/oceania/wellington.jpg"}
     ]
+
+    let [counter, setCounter] = useState(0);
+    let [counterTo, setCounterTo] = useState(4);
+    function next_slide() {
+        if (data.length <= counterTo) {
+          setCounter(0)
+          setCounterTo(4)
+        } else {
+          setCounter(counter+4)
+          setCounterTo(counterTo+4)
+        }
+    }
+    function prev_slide() {
+        if (counter <= 0) {
+          setCounter(data.length-4)
+          setCounterTo(data.length)
+        } else {
+          setCounter(counter-4)
+          setCounterTo(counterTo-4)
+        }
+    }
+    
+
   return (
     
    <>
-        <div className='contenedor'>
-            <FontAwesomeIcon icon={faChevronLeft} className='arrow' />
-            <div className="container-carousel">
-                {data.slice(0,4).map(each=> <CardPolaroid key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
+        <div className='container-carousel'>
+            <Arrows direction="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" onClick={prev_slide} />
+            <div className="carousel">
+                {data.slice(counter, counterTo).map(each=> <CardPolaroid key={each.id} src={each.photo} alt={each.id} text={each.city}/>)}
             </div>
-            <FontAwesomeIcon icon={faChevronRight} className='arrow'/>
+            <Arrows direction="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"onClick={next_slide} />
         </div>
     </>
   )
 }
+
 
 {/*<div className="card bg-dark text-white card-carousel ">
                     <img src={data[1].photo} alt={data[1].id}className="card-img" />

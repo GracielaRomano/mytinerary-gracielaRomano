@@ -1,9 +1,9 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faChevronRight, faChevronLeft} from '@fortawesome/free-solid-svg-icons'
 
+import { faFacebook} from '@fortawesome/free-brands-svg-icons'
 import './App.css'
 import Home from './pages/Home';
-
+import Footer from './components/Footer';
 
 
 function App() {
@@ -13,10 +13,10 @@ function App() {
     <>
    
       <Home />
-      
+     
       
     </>
   )
 }
-library.add( faChevronRight, faChevronLeft)
+library.add( faFacebook)
 export default App
