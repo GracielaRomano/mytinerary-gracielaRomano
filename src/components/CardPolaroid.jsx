@@ -10,7 +10,7 @@ export default function CardPolaroid({src, alt, text}) {
         <Card.ImgOverlay>
           <Card.Title className='card-title-polaroid'>{text}</Card.Title>
           
-          <a href="#" className="btn btn-primary btn-card">Go</a>
+          <a href="#" className="btn btn-primary btn-card" >Go</a>
         </Card.ImgOverlay>
         </Card>
   )

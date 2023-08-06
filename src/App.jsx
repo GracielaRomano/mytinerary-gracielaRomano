@@ -1,6 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faFacebook} from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faXTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import './App.css'
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -13,10 +13,10 @@ function App() {
     <>
    
       <Home />
-     
+     <Footer />
       
     </>
   )
 }
-library.add( faFacebook)
+library.add( faFacebook,faXTwitter, faInstagram)
 export default App

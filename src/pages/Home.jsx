@@ -15,7 +15,7 @@ export default function Home() {
               <div className="card-body">
                 <p className="card-text card-text-home">Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.</p>
                 <p className="text-slogan">"Find your perfect trip, designed by insiders who know and love their cities!"</p>
-                <a href="#" className="btn btn-card-home">View More</a>
+                <a href="#" className="btn ov-btn-slide-left" >View More</a>
               </div>
             </div>
             </div>
