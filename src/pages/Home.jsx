@@ -20,7 +20,7 @@ export default function Home() {
             </div>
             </div>
             <div className="col-sm-12 col-lg-5" >
-              <h3 className="titulo-carousel">"Popular Mytineraries"</h3>
+            <h3 className="titulo-carousel">"Popular Mytineraries"</h3>
                 <Carousel/>
               
             </div>
