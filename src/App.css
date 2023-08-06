@@ -84,8 +84,6 @@ nav.navbar ul.navbar-nav li {
   display: flex;
   justify-content: center;
   align-items: center;
-  
- 
 }
 .carousel{
   display: flex;
@@ -93,7 +91,6 @@ nav.navbar ul.navbar-nav li {
   width: 300px;
   height: 300px;
   justify-content: center;
-  
 }
 .btn-card{
   position: absolute;
@@ -131,7 +128,6 @@ nav.navbar ul.navbar-nav li {
   text-align: center;
   margin-bottom: 3rem;
 }
-
 
 @media only screen and (min-width: 1024px){
   .carousel{
