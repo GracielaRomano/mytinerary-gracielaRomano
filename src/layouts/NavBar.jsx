@@ -7,10 +7,10 @@ function NavBar() {
   return (
     <>
 
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar-background">
       <Container>
         <Navbar.Brand href="#home">
-          <img className="logo" src="img/travel-logo.png" alt="Logo"/>
+          <img className="logo" src="img/logoTrave.png" alt="Logo"/>
           <span className='logo-font'>My Tinerary</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
