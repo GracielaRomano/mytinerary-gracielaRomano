@@ -37,6 +37,8 @@ nav.navbar ul.navbar-nav li {
   font-size: 24px;
   color: black;
   font-weight: 700;
+  text-decoration: none;
+  margin-right: 1rem;
 }
 .btn-login{
 	width: 100px;
@@ -267,10 +269,6 @@ nav.navbar ul.navbar-nav li {
   }
 }
 /*----FOOTER---*/
-
-  
-  
-
 .footer {
   padding: 0 0 50px 0;
   margin-top: 1rem;

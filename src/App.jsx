@@ -1,9 +1,8 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-
 import { faFacebook, faXTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import './App.css'
-import Home from './pages/Home';
-import Footer from './components/Footer';
+import { RouterProvider } from 'react-router-dom'
+import router from "./router";
 
 
 function App() {
@@ -12,8 +11,7 @@ function App() {
   return (
     <>
    
-      <Home />
-     <Footer />
+   <RouterProvider router={router} />
       
     </>
   )

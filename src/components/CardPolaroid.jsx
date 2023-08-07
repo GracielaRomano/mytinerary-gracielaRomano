@@ -1,7 +1,8 @@
 import Card from 'react-bootstrap/Card';
+import { Link as Anchor } from "react-router-dom"
 
 
-export default function CardPolaroid({src, alt, text}) {
+export default function CardPolaroid({ src, alt, text, id}) {
   return (
         
 
@@ -10,7 +11,7 @@ export default function CardPolaroid({src, alt, text}) {
         <Card.ImgOverlay>
           <Card.Title className='card-title-polaroid'>{text}</Card.Title>
           
-          <a href="#" className="btn btn-primary btn-card" >Go</a>
+          <Anchor to={'/city/'+id} className="btn btn-primary btn-card" >Go</Anchor>
         </Card.ImgOverlay>
         </Card>
   )
