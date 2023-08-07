@@ -2,6 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import { Link as Anchor } from "react-router-dom"
+
 
 function NavBar() {
   return (
@@ -15,9 +17,9 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto links-nav">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">Cities</Nav.Link>
+          <Nav className="me-auto ">
+            <Anchor to='/' className='links-nav'>Home</Anchor>
+            <Anchor to='/Cities' className='links-nav'>Cities</Anchor>
           </Nav>
           <Nav>
             <Button className="btn btn-primary btn-login" type="submit">
