@@ -1,9 +1,9 @@
-import NavBar from "../layouts/NavBar"
+import NavBar from "../components/NavBar"
 
 export default function CityDetails() {
   return (
     <>
-      <NavBar/>
+     
       <div>CityDetails under construction</div>
     </>
   )

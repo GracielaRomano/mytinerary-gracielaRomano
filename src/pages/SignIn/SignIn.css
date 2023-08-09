@@ -1,0 +1,36 @@
+.fondo-signIn{
+  background-image: url('/img/fondoTravel6.png');
+  min-height: 100vh;
+
+}
+.container-signIn{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.form-signIn{
+    width: 350px;
+    border: 1px solid rgb(242, 222, 202);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(242, 222, 202);
+    padding: 10px;
+    border-radius: 5px;
+}
+.title-signIn{
+    text-align: center;
+    margin-top: 1rem;
+}
+@media only screen and (min-width: 1024px){
+    .form-signIn{
+      width: 600px;
+      margin-top: 3rem;
+      flex-grow: 0;
+    }
+    .container-signIn{
+      align-items: flex-end;
+    }
+}
+  
