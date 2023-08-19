@@ -10,7 +10,7 @@
   src: url(fonts/Madame.ttf);
 }
 .navbar-background{
-  background-color: azure;
+  background-color: cornsilk;
 }
 .navbar-collapse{
   flex-grow: 0 !important;
@@ -28,9 +28,13 @@
   font-weight: bold;
 }
 .btn-login{
-    width: 50px;
-    height: 40px;
+  width: 50px;
+  height: 40px;
   font-size: 10px;
+  background-color: #0166a4;
+  border: #0166a4 1px solid;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px #757576;
 }
 .logo{
   width: 50px;
@@ -59,18 +63,20 @@
     margin-right: 1rem;
   }
   .btn-login{
-    padding-top: 10px;
+    /*padding-top: 10px;
     padding-right: 32px;
     padding-bottom: 16px;
-    padding-left: 32px;
-    width: 150px;
-    height: 60px;
+    padding-left: 32px;*/
+    padding: auto;
+    width: 100px;
+    height: 50px;
     right: 0;
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: 500;
   }
   .img-login{
-    width: 21px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 /*----CAROUSEL----*/
@@ -96,16 +102,17 @@
 .titulo-carousel{
   text-align: center;
   margin-bottom: 3.5rem;
+  font-weight: 700;
+  font-size: 30px;
 }
 .btn-card{
   position: absolute;
   bottom:5px;
   left:5px;
-  width: 30%;
+  width: 35%;
   height: 20px;
   border-radius:10px;
   color:white;
-  text-transform:uppercase;
   font-size: 10px;
   text-align: center;
   padding: 1px;
@@ -116,7 +123,9 @@
 }
 .card-title-polaroid{
   font-size: 15px;
-  color: #ed8a00;
+  color:black;
+  text-shadow:1px 1px 1px #ff9900;
+  font-weight: 700;
 }
 .arrow{
   font-size: 30px;
@@ -156,6 +165,7 @@
 .footer {
   padding: 0 0 50px 0;
   background-image: linear-gradient(210.41deg, rgb(2, 2, 72) 10%, rgb(236, 72, 7) 120%);
+  background-image:url('/img/footer3.1.png');
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffffff;
@@ -187,7 +197,7 @@
 .social-icon a {
   width: 30px;
   height: 30px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.363);
   display: inline-flex;
   border-radius: 50%;
   margin-right: 10px;
@@ -251,5 +261,52 @@
   display: flex;
   flex-direction: column;
 }
+/*----CARD CITIES----*/
+.card-cities{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18rem;
+  margin: 10px;
+}
+.card-img-cities{
+  width: 17.8rem;
+  height: 15rem;
+}
+.card-title-cities{
+  font-size: 24px;
+  color:black;
+  text-shadow: 2px 1px 2px rgb(238, 203, 160);
+ /* text-shadow: 2px 1px 2px #ed8a00;*/
+  font-weight: 700;
+}
+.location-img{
+  width: 12px;
+  height: 12px;
+  margin-top: 0;
+  color: black;
+}
+.card-loc{
+  color:black;
+  text-shadow: 2px 1px 2px rgb(238, 203, 160);
+  font-weight: 500;
+}
+.btn-card-cities{
+  position: absolute;
+  bottom:5px;
+  left:5px;
+  width: 40%;
+  height: 30px;
+  border-radius:10px;
+  color:white;
+  font-size: 15px;
+  text-align: center;
+  padding: 1px; 
+}
 
-
+@media only screen and (min-width: 1024px){
+  .card-cities{
+    display: flex;
+    flex-direction: row;
+  }
+}
