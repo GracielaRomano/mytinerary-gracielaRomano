@@ -5,6 +5,7 @@ import CardCities from "../../components/CardCities"
 import NavBar from '../../components/NavBar';
 import apiUrl from '../../apiUrl'
 
+
 export default function Cities() {
   const [cities, setCities] = useState([]);
   const [reEffect, setReEffect] = useState(true);
@@ -32,8 +33,9 @@ export default function Cities() {
     setReEffect(!reEffect);
   }
 
+  
   return (
-    <main>
+    < >
       <NavBar />
       <div className='banner'>
         <h3 className='title-cities'>Cities</h3>
@@ -44,12 +46,14 @@ export default function Cities() {
           <input ref={text} type="text" name="search" placeholder="Search your city" onKeyUp={filter} />
         </form>
         <div className='cities' style={{ display: resultNotFound ? "none" : "flex" }}>
-          {cities.map(each => <CardCities key={each._id} src={each.photo} alt={each.id} text={each.city} loc={each.country} id={each.id} />)}
+          {cities.map(each => <CardCities key={each._id} src={each.photo} alt={each._id} text={each.city} loc={each.country} id={each._id} />)}
         </div>
-        <div className="row" id="NotFound" style={{ display: resultNotFound ? "block" : "none" }}>
-          <h4 className="message"> City not found, try another</h4>
+        <div className='bg-notFound' style={{ display: resultNotFound ? "block" : "none" }}>
+          <div className="row" id="NotFound" style={{ display: resultNotFound ? "block" : "none" }}>
+            <p className="message"> Oops! We did not find the city you are looking for</p>
+          </div>
         </div>
       </div>
-    </main>
+    </>
   )
 }
