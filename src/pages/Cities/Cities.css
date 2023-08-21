@@ -8,9 +8,7 @@
 .title-cities{
     margin-top: 3rem;
     text-align: center;
-    
 }
-
 .cities{
     display: flex;
     flex-wrap: wrap;
@@ -35,10 +33,10 @@
 .paragraph-cities{
     font-size: 12px;
     font-weight: 500;
-    margin-bottom: 4rem;
+    margin-bottom: 5.5rem;
 }
 input[type=text] {
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
     border: 2px solid lightblue;
     border-radius: 20px;
@@ -49,21 +47,33 @@ input[type=text] {
     background-position: 15px 15px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 60px;
-    margin-left: 5px;
+    margin-left: 20px;
+    margin-top: 0;
 }
 .message{
-    text-align: center;
+    text-align:left;
     color: #013654;
     font-weight: bold;
-    /*border: #004949 1px solid;*/
-    border-radius: 10px;
-    background-color: lightblue;
-    margin: auto;
-    width: 50%;
-    margin-top: 5rem;
-    padding: 10px;
-    margin-bottom: 5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-size: 12px;
 }
+.bg-notFound{
+    width: 300px;
+    height: 280px;
+    background-image: url('/public/img/notFound2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #013654;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items:normal;
+    margin-top: 3rem;
+    margin-left: 30px;
+}
+
 @media screen and (max-width: 850px) and (min-width: 768px) {
     input[type=text] {
         margin-left: 200px;
@@ -74,6 +84,14 @@ input[type=text] {
     }
     .cities{
         width: 800px;
+    }
+    .bg-notFound{
+        width: 400px;
+        height: 370px;
+        margin-left: 200px;
+    }
+    .message{
+        font-size: 16px;
     }
 }
 @media only screen and (max-width: 992px)and (min-width: 851px){
@@ -97,6 +115,15 @@ input[type=text] {
         width: 600px;
         margin-left: 400px;
     }
+    .bg-notFound{
+        width: 600px;
+        height: 550px;
+        margin-left: 400px;
+    }
+    .message{
+        font-size: 22px;
+        margin-left: 10px;
+    }
     .container-cities{
         margin-top: 5rem;
         width: 100%;
@@ -111,5 +138,6 @@ input[type=text] {
     }
     .title-cities{
         font-size: 60px;
+        margin-bottom: 2.5rem;
     }
 }

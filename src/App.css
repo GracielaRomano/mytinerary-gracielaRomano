@@ -7,10 +7,13 @@
 /*---NAVBAR----*/
 @font-face {
   font-family: 'myTinerary';
-  src: url(fonts/Madame.ttf);
+  src: url(/public/fonts/Madame.ttf);
 }
 .navbar-background{
   background-color: cornsilk;
+}
+.navbar-transparent{
+  background-color: transparent;
 }
 .navbar-collapse{
   flex-grow: 0 !important;
@@ -53,9 +56,26 @@
   font-weight: 400;
   text-align: left;
 }
+.logo-transparent{
+  font-family:'myTinerary' ;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42.56px;
+  color:black;
+  width: 183px;
+  height: 43px;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: left;
+}
 .img-login{
     width: 15px;
     height: 15px;
+}
+.rotate-left{
+  width: 15px;
+  height: 15px;
+  font-weight: bold;
 }
 @media only screen and (min-width: 1024px){
   .links-nav{
@@ -63,10 +83,6 @@
     margin-right: 1rem;
   }
   .btn-login{
-    /*padding-top: 10px;
-    padding-right: 32px;
-    padding-bottom: 16px;
-    padding-left: 32px;*/
     padding: auto;
     width: 100px;
     height: 50px;
@@ -75,6 +91,10 @@
     font-weight: 500;
   }
   .img-login{
+    width: 18px;
+    height: 18px;
+  }
+  .rotate-left{
     width: 18px;
     height: 18px;
   }
@@ -116,6 +136,7 @@
   font-size: 10px;
   text-align: center;
   padding: 1px;
+  font-weight: 700;
 }
 .card-img{
   width: 7rem;
@@ -128,12 +149,20 @@
   font-weight: 700;
 }
 .arrow{
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
+  height:2.2rem;
+  width: 2.2rem;
+  background-color: cornsilk;
+  border-radius: 50%;
   cursor: pointer;
 }
 .arrow:hover{
   font-size: 40px;
+  height:2.5rem;
+  width: 2.5rem;
+  background-color: #ff9900;
+  font-weight: bold;
 }
 @media only screen and (min-width: 600px){
   .titulo-carousel{
@@ -160,6 +189,12 @@
   .titulo-carousel{
     margin-top: 1rem;
   }
+  .arrow{
+    background-color: transparent;
+  }
+  .arrow:hover{
+    background-color: transparent;
+  }
 }
 /*----FOOTER---*/
 .footer {
@@ -182,10 +217,14 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.address-footer{
+  text-align: center;
+}
 .links-footer{
   text-decoration: none;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 20px;
+  margin-top: 2rem;
 }
 .links-footer:hover{
   color:#4741d7
@@ -205,7 +244,7 @@
   justify-content: center;
   line-height: 1;
   border: 1px solid rgba(255, 255, 255, 0.822);
-  margin-top: 5px;
+  margin-top: 1rem;
 }
 .social-icon a::before {
   content: "";
@@ -232,12 +271,17 @@
   width: 300px;
   height: 200px;
   border: 0;
+  margin-top: 1rem;
 }
 @media only screen and (min-width: 1024px){
   .social-icon a {
     width: 40px;
     height: 40px;
-    margin-top: 3px;
+    margin-top: 1.5rem;
+    margin-left: 20px;
+  }
+  .social-icon a img {
+    width: 50%;
   }
   .social-icon a::before {
     width: 40px;
@@ -247,12 +291,14 @@
     width: 300px;
     height: 150px;
   }
-  .address{
+  .address-footer{
     margin-top: 1rem;
     margin-bottom: 1rem;
+    text-align: left;
+    margin-left: 8rem;
   }
   .footer{
-    height: 250px;
+    height: 300px;
   }
 }
 .container-layout{
@@ -260,6 +306,105 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/*---footer cities----*/
+.footer-cities{
+  padding: 0 0 50px 0;
+  background-image:url('/img/footer-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  flex-grow: 0;
+}
+.title-footer-cities{
+  font-family: 'myTinerary';
+  margin-top: 1rem;
+  font-size: 30px;
+}
+.footer-cities h4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.social-icon-cities{
+  display: inline-block;
+  margin-left: 14px;
+  margin-top: 1rem;
+}
+.social-icon-cities a {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.363);
+  display: inline-flex;
+  border-radius: 50%;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.822);
+}
+.social-icon-cities a::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+.social-icon-cities a:hover::before {
+  transform: scale(1);
+}
+.social-icon-cities a img {
+  width: 40%;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+.social-icon-cities a:hover img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+.footer-paragraf{
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.address{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1024px){
+  .social-icon-cities{
+    margin-top: 3rem;
+  }
+  .social-icon-cities a {
+    width: 50px;
+    height: 50px;
+    margin-top: 3px;
+    margin-left: 50px;
+  }
+  .social-icon-cities a::before {
+    width: 50px;
+    height: 50px;
+  }
+  .social-icon-cities a img {
+    width: 50%;
+  }
+  .title-footer-cities{
+    font-size: 50px;
+  }
+  .footer-cities ul{
+    margin-top: 2rem;
+  }
+  .address{
+    margin-top: 2rem;
+    text-align: left;
+    margin-left: 6rem;
+  }
 }
 /*----CARD CITIES----*/
 .card-cities{
@@ -308,5 +453,46 @@
   .card-cities{
     display: flex;
     flex-direction: row;
+  }
+}
+
+/*-----DETAILS-----*/
+.btn-bg-details{
+  position: absolute;
+  bottom:200px;
+  left:100px;
+  width: 50%;
+  height: 40px;
+  border-radius:10px;
+  background-color: rgb(79, 2, 92);
+  color:white;
+  font-size: 18px;
+  text-align: center;
+  padding: 1px;
+  font-weight: 700; 
+}
+.btn-bg-details:hover{
+  background-color: rgb(130, 3, 155);
+  color:white;
+}
+.title-details{
+  font-size: 45px;
+  color: rgb(130, 3, 155);
+  text-shadow:2px 2px 3px rgb(65, 2, 76); ;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 850px) and (min-width: 768px) {
+  .btn-bg-details{
+    bottom: 130px;
+    left: 290px;
+    width: 200px;
+  }
+}
+@media only screen and (min-width: 1024px){
+  .btn-bg-details{
+    bottom:50px;
+    width: 200px;
+    left: 700px;
   }
 }
