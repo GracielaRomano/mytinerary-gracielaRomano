@@ -10,23 +10,23 @@ export default function FooterCities() {
         <Container>
             <Row >
                 <h2 className="title-footer-cities">MyTinerary</h2>
-                <Col sm={12} lg={4}>
-                <ul className="list-unstyled">
-                    <li>
-                        <Anchor to={'/'} className="links-footer">Home</Anchor>
-                    </li>
-                    <li>
-                        <Anchor to={'/Cities'} className="links-footer">Cities</Anchor>
-                    </li>
-                </ul>
+                <Col sm={12} md={4} lg={4}>
+                    <ul className="list-unstyled">
+                        <li>
+                            <Anchor to={'/'} className="links-footer">Home</Anchor>
+                        </li>
+                        <li>
+                            <Anchor to={'/Cities'} className="links-footer">Cities</Anchor>
+                        </li>
+                    </ul>
                 </Col>
-                <Col sm={12} lg={4} >
+                <Col sm={12} md={4} lg={4} >
                     <div className="address">
                         <i class="bi bi-journal-text"></i>  Miami, Florida, EE.UU.<br></br>
                         <i className="bi bi-telephone-inbound-fill">    111256987</i>
                     </div>
                 </Col>
-                <Col sm={12} lg={4}>
+                <Col sm={12} md={4} lg={4}>
                     <div className="social-icon-cities">
                         <a href=""><img src ={facebook} /></a>
                         <a href=""><img src ={twitter} /></a>

@@ -22,7 +22,6 @@ export default function CityDetails() {
       });
   }, [city_id]);
 
-  
 
   const { _id, photo, city, smalldescription } = cityData;
   return (

@@ -33,7 +33,6 @@ export default function Cities() {
     setReEffect(!reEffect);
   }
 
-  
   return (
     < >
       <NavBar />
