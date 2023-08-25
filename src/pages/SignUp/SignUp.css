@@ -1,0 +1,157 @@
+.container-signup{
+    min-height: 100vh;
+    width: 100%;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    background-image: url('/img/fondoTravel6.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.signup-title{
+    text-align: center;
+    margin-top: 1rem;
+    color: #fff;
+    font-family:  'myTinerary';
+    font-size: 45px;
+    margin-bottom: 1.5rem;
+}
+.signup{
+    max-width: 350px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    margin-bottom: 3rem;
+}
+.title-signup{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center; 
+}
+.form-signup{
+    margin-top: 30px;
+}
+.signup .grid{
+    position: relative;
+    height:50px;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+.signup-content a:hover{
+    text-decoration: underline;
+  }
+.grid button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: #0171d3;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.grid button:hover{
+    background-color: #016dcb;
+}
+.grid input{
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 15px;
+    border: none;
+    border-bottom: 1px solid #cacaca;
+    cursor: pointer;
+}
+.grid input:hover{
+    border-bottom-width: 2px;
+}
+.link-signup{
+    color: #0171d3;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.form-signup a:hover{
+    text-decoration: underline;
+}
+.form-link-signup{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link-signup span{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+    margin-left: 10px;
+}
+.media-options-signup a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+a.facebook{
+    color: #fff;
+    background-color: #4267b2;
+}
+a.facebook .facebook-icon{
+    height: 25px;
+    width: 25px;
+    color: #0171d3;
+    background-color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+img.facebook-icon,
+img.google-img{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+img.google-img{
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+a.google{
+  border: 1px solid #cacaca;
+}
+a.google span{
+  font-weight: 500;
+  opacity: 0.6;
+  color: #232836;
+}
+
+@media only screen and (min-width: 1024px){
+    .signup{
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      margin-top: 3rem;
+      margin-left: 50px;
+      margin-bottom: 5rem;
+    }
+    .title-signIn{
+      text-align: center;
+      margin-top: 15rem;
+      font-size: 70px;
+    }
+    .grid-form{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+    }
+    
+    .grid button{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+  }

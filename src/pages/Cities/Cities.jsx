@@ -42,7 +42,7 @@ export default function Cities() {
       </div>
       <div className="container-cities">
         <form>
-          <input ref={text} type="text" name="search" placeholder="Search your city" onKeyUp={filter} />
+          <input ref={text} type="text" name="search" placeholder="Search your city" className='search' onKeyUp={filter} />
         </form>
         <div className='cities' style={{ display: resultNotFound ? "none" : "flex" }}>
           {cities.map(each => <CardCities key={each._id} src={each.photo} alt={each._id} text={each.city} loc={each.country} id={each._id} />)}
