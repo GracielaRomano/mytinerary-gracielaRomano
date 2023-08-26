@@ -23,7 +23,7 @@ export default function Footer() {
                 </Col>
                 <Col sm={12}  md={4} lg={4} >
                     <div className="address-footer">
-                        <i class="bi bi-journal-text"></i>  Miami, Florida, EE.UU.<br></br>
+                        <i className="bi bi-journal-text"></i>  Miami, Florida, EE.UU.<br></br>
                         <i className="bi bi-telephone-inbound-fill"> : 111256987</i>
                     </div>
                     <div className="social-icon">
