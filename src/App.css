@@ -429,6 +429,9 @@
   width: 18rem;
   margin: 10px;
 }
+.card-cities:hover{
+  filter: grayscale(0.5);
+}
 .card-img-cities{
   width: 17.8rem;
   height: 15rem;
