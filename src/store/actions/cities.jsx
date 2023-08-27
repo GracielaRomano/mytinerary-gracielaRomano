@@ -32,6 +32,18 @@ const read_cities = createAsyncThunk(
         }
     }
 )
-
-const cities_actions = {read_carousel, read_cities}
+const read_city = createAsyncThunk(
+    'read_city',
+    async(obj)=> {
+        try {
+            let data = await axios(apiUrl+'cities/'+obj.id)
+            console.log(data);
+            return { city: data.data.response }
+        } catch (error) {
+            console.log(error);
+            return { city: {} }
+        }
+    }
+)
+const cities_actions = {read_carousel, read_cities, read_city}
 export default cities_actions

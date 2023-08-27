@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import apiUrl from '../../apiUrl'
+import React, { useEffect } from 'react';
 import Details from "../../components/Details"
 import './CityDetails.css'
 import { useParams } from 'react-router-dom';
 import { Link as Anchor } from "react-router-dom"
 import RotateLeft from '../../components/RotateLeft';
 import FooterCities from '../../components/FooterCities';
+import { useDispatch, useSelector } from 'react-redux';
+import cities_actions from '../../store/actions/cities';
+import NavbarTransparent from '../../components/NavbarTransparent';
+
+const { read_city} = cities_actions
 
 export default function CityDetails() {
-  const [cityData, setCityData] = useState({});
   const { city_id } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`${apiUrl}/cities/${city_id}`)
-      .then(res => {
-        setCityData(res.data.response);
-      })
-      .catch(error => {
-        console.error("Error fetching city data:", error);
-      });
-  }, [city_id]);
+    dispatch(read_city({ id:city_id}))
+  }, [])
 
-
-  const { _id, photo, city, smalldescription } = cityData;
+  const city = useSelector(store=> store.cities.city)
   return (
     <>
-      <Details src={photo} alt={_id} text={city} id={_id} description={smalldescription}/>
+      <NavbarTransparent/>
+      <Details src={city.photo} alt={city._id} text={city.city} id={city._id} description={city.smalldescription}/>
       <Anchor to={'/Cities'} className="btn btn-link-cities" >
         <RotateLeft />
         Cities

@@ -1,12 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 import cities_actions from "../actions/cities";
 
-const { read_carousel, read_cities} = cities_actions
+const { read_carousel, read_cities, read_city} = cities_actions
 
 const initial_state = {
     carousel: [],
     cities: [],
-    resultNotFound: false // Agregar el estado para controlar si no se encontraron resultados
+    resultNotFound: false, // Agregar el estado para controlar si no se encontraron resultados
+    city:{}
 }
 
 const cities_reducer = createReducer(
@@ -40,6 +41,16 @@ const cities_reducer = createReducer(
                 cities: [], // Restablecer las ciudades a una lista vacía
                 resultNotFound: true // Establecer el estado como verdadero al producirse un error
             };
+        }
+    )
+    .addCase(
+        read_city.fulfilled,
+        (state,action)=> {
+            let new_state = {
+                ...state,
+                city: action.payload.city
+            }
+            return new_state
         }
     )
 )
