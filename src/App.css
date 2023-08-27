@@ -429,8 +429,13 @@
   width: 18rem;
   margin: 10px;
 }
+.card-cities:hover{
+  filter: grayscale(0.5);
+  border: black 4px solid;
+  box-shadow: 5px 5px 5px 5px #888888;
+}
 .card-img-cities{
-  width: 17.8rem;
+  width: 283.6px;
   height: 15rem;
 }
 .card-title-cities{
@@ -493,6 +498,7 @@
 .title-details{
   font-size: 30px;
   color: rgb(130, 3, 155);
+  color: black;
   text-shadow:2px 2px 3px rgb(65, 2, 76); ;
   font-weight: bold;
   width: 300px;

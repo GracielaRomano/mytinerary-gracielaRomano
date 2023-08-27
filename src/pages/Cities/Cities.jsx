@@ -1,32 +1,23 @@
 import './Cities.css'
 import { useState, useEffect, useRef } from 'react';
-import axios from "axios";
 import CardCities from "../../components/CardCities"
 import NavBar from '../../components/NavBar';
-import apiUrl from '../../apiUrl'
+import { useSelector, useDispatch } from 'react-redux';
+import cities_actions from '../../store/actions/cities';
 
+const { read_cities} = cities_actions
 
 export default function Cities() {
-  const [cities, setCities] = useState([]);
+  const cities = useSelector(store=>store.cities.cities)
+  const resultNotFound = useSelector(store => store.cities.resultNotFound); // Agregamos el estado para el resultado no encontrado
   const [reEffect, setReEffect] = useState(true);
-  const [resultNotFound, setResultNotFound] = useState(false); // Agregamos el estado para controlar si el resultado no se encontró
   const text = useRef();
+  const dispatch = useDispatch()
 
   useEffect(
     ()=>{
-      axios(apiUrl+'cities?city='+text.current.value)
-        .then(res => {
-          setCities(res.data.response);
-          setResultNotFound(false); // Reiniciamos el estado si se recibe una respuesta exitosa
-        })
-        .catch(err => {
-          if (err.response && err.response.status === 404) {
-            setResultNotFound(true); // Cambiamos el estado si se recibe un error 404
-          }
-          console.log(err);
-        });
-    },
-    [reEffect]
+        dispatch(read_cities({ text:text.current?.value}));
+    },[reEffect]
   );
 
   function filter() {
