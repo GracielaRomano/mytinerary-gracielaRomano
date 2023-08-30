@@ -22,7 +22,7 @@ const read_cities = createAsyncThunk(
     async(obj)=> {
         try{
             let data =await axios(apiUrl+'cities?city='+obj.text)
-            console.log('dato recibido desde axios: ',data)
+            //console.log('dato recibido desde axios: ',data)
             return{
                 cities: data.data.response
             }
@@ -37,7 +37,6 @@ const read_city = createAsyncThunk(
     async(obj)=> {
         try {
             let data = await axios(apiUrl+'cities/'+obj.id)
-            console.log(data);
             return { city: data.data.response }
         } catch (error) {
             console.log(error);
