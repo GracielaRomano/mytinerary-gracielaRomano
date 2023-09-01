@@ -6,7 +6,7 @@ import {faLocationDot} from'@fortawesome/free-solid-svg-icons'
 
 export default function CardCities({ src, alt, text, loc, id}) {
   return (
-        <Card className="bg-dark text-white card-cities">
+        <Card className=" text-white card-cities">
         <Card.Img src={src} alt={alt} className="card-img-cities" />
         <Card.ImgOverlay>
           <Card.Title className='card-title-cities'>{text}</Card.Title>
