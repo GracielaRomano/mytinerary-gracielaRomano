@@ -3,11 +3,12 @@ import { Link as Anchor } from "react-router-dom"
 import RotateLeft from './RotateLeft';
 import CardItineraries from './CardItineraries';
 import ContenItineraries from './ContenItineraries';
+import Features from './Features';
 import { useSelector,useDispatch } from "react-redux";
 import itinerary_actions from "../store/actions/itineraries"
 const { read_itineraries } = itinerary_actions
 
-export default function Details({ src, alt, text, id, description}) {    
+export default function Details({ src, alt, text, id, description, country}) {    
     const backgroundStyle = {backgroundImage: `url(${src})`};
     const resultNotFound = useSelector(store => store.itineraries.resultNotFound);
     const [showItineraries, setShowItineraries] = useState(false);
@@ -15,7 +16,6 @@ export default function Details({ src, alt, text, id, description}) {
     const dispatch = useDispatch()
 
     const toggleItineraries= ()=>{setShowItineraries(!showItineraries) }
-
     useEffect(
       ()=>{
         dispatch(read_itineraries({city_id: id }))
@@ -28,8 +28,7 @@ export default function Details({ src, alt, text, id, description}) {
           <div className="text-overlay">
             <h1 className="title-details">{text}</h1>
             <p className="d-none d-sm-block text-bg">{description}</p>
-            <button className="btn-bg-details" onClick={toggleItineraries}>
-              
+            <button className="btn-bg-details" onClick={toggleItineraries}><i class="bi bi-arrow-down arrow-details"></i>
               View Itinerary
             </button>
           </div>
@@ -38,6 +37,8 @@ export default function Details({ src, alt, text, id, description}) {
             Cities
           </Anchor>
         </div>
+        {(country === undefined) ?(<div></div>):(<Features name={country.name} currency={country.currency} language={country.language}/>)}
+
         <div className="container-itineraries">
           {resultNotFound && showItineraries ? (
             <div className="bg-notFound-itineraries">
