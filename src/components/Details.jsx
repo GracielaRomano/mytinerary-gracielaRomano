@@ -28,7 +28,7 @@ export default function Details({ src, alt, text, id, description, country}) {
           <div className="text-overlay">
             <h1 className="title-details">{text}</h1>
             <p className="d-none d-sm-block text-bg">{description}</p>
-            <button className="btn-bg-details" onClick={toggleItineraries}><i class="bi bi-arrow-down arrow-details"></i>
+            <button className="btn-bg-details" onClick={toggleItineraries}><i className="bi bi-arrow-down arrow-details"></i>
               View Itinerary
             </button>
           </div>
@@ -68,6 +68,7 @@ export default function Details({ src, alt, text, id, description, country}) {
                         tags={each.tags}
                         duration={each.duration}
                         price={each.price}
+                        id={each._id}
                       />
                   }
                 />
