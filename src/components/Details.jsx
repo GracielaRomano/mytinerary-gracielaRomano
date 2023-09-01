@@ -28,7 +28,7 @@ export default function Details({ src, alt, text, id, description, country}) {
           <div className="text-overlay">
             <h1 className="title-details">{text}</h1>
             <p className="d-none d-sm-block text-bg">{description}</p>
-            <button className="btn-bg-details" onClick={toggleItineraries}><i class="bi bi-arrow-down arrow-details"></i>
+            <button className="btn-bg-details" onClick={toggleItineraries}><i className="bi bi-arrow-down arrow-details"></i>
               View Itinerary
             </button>
           </div>
@@ -75,34 +75,6 @@ export default function Details({ src, alt, text, id, description, country}) {
             </div>
           )}
         </div>
-        {/*<div className="background-container" style={backgroundStyle}>
-          <div className="text-overlay">
-            <h1 className="title-details">{text}</h1>
-            <p className="d-none d-sm-block text-bg">{description}</p>
-            <button className="btn-bg-details" onClick={toggleItineraries}> View Itinerary</button>
-          </div>
-          <Anchor to={'/Cities'} className="btn btn-link-cities" >
-            <RotateLeft />
-            Cities
-          </Anchor>
-        </div>
-        <div className='container-itineraries'>
-          <div className='itineraries' style={{ display: resultNotFound ? "none" : "flex" }}>
-            {showItineraries && itineraries.map(each=><Itineraries key={each._id} title={each.name} imageSrc={each.photo} id={each._id}  
-              content={
-                <>
-                  <p>Additional content goes here.</p>
-                  <p>You can add more paragraphs, images, or other elements.</p>
-                </>
-              }
-            />)} 
-          </div>
-          <div className='bg-notFound-itineraries' style={{ display: resultNotFound ? "block" : "none" }}>
-              <div className="row" id="NotFound" style={{ display: resultNotFound ? "block" : "none" }}>
-                <p className="message-itineraries"> Oops! There are no itineraries for the selected city</p>
-              </div>
-          </div>
-            </div>*/}
       </>
     );
 }

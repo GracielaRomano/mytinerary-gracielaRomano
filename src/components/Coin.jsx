@@ -9,7 +9,7 @@ export default function Coin({ price, id }) {
     }
   return (
     <div>
-        {money} usd
+        {money.id} usd
     </div>
   )
 }
