@@ -438,13 +438,13 @@
 }
 .card-cities:hover{
   filter: grayscale(0.5);
-  /*border: black 4px solid;*/
   box-shadow: 5px 5px 5px 5px #888888;
   box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
 }
 .card-img-cities{
   width: 100%;
   height: 15rem;
+  
 }
 .card-title-cities{
   font-size: 24px;
@@ -481,6 +481,12 @@
   .card-cities{
     display: flex;
     flex-direction: row;
+    height: 20rem;
+  }
+  .card-img-cities{
+    height: 20rem;
+    width: 18.5rem;
+    object-fit: cover;
   }
 }
 
@@ -810,6 +816,7 @@
   height: 10rem;
   margin-top: 10px;
   border-radius: 15px;
+  object-fit: cover;
 }
 .titulo-features{
   color: #f9f9f9;

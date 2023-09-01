@@ -68,6 +68,7 @@ export default function Details({ src, alt, text, id, description, country}) {
                         tags={each.tags}
                         duration={each.duration}
                         price={each.price}
+                        id={each._id}
                       />
                   }
                 />

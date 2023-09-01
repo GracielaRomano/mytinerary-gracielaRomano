@@ -2,12 +2,13 @@ import { Link as Anchor } from "react-router-dom"
 import NavBar from "../../components/NavBar";
 import google from "/img/google.png";
 import facebook from "/img/facebook.png"
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import axios from "axios";
 import apiUrl from "../../apiUrl";
 import './SignUp.css'
 
 export default function SignUp() {
+
   const name = useRef();
   const lastName = useRef();
   const photo = useRef();

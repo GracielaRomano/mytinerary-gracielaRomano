@@ -6,10 +6,11 @@ import Activities from './Activities'
 import Coin from './Coin';
 
 
-export default function ContenItineraries({user, photo, alt, tags, duration, price,id}) {
+export default function ContenItineraries({user, photo, alt, tags, duration, price}) {
     const [showActivities, setShowActivities] = useState(false);
     const toggleContent=()=> {setShowActivities(!showActivities)}
-    
+    const oprice = Array.from({ length: price }, (_, index) => ({ valor: 0 }));
+
   return (
    <Container className='align-text'>
         <Row >
@@ -30,7 +31,12 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
             </Col>
             <Col xs={6} md={4} lg={4}>
                 <h6>Price</h6>
-                <Coin key={id} price={price}/>
+                <div>
+                {oprice.map((each, index) => (
+                    <Coin key={index} /> 
+                ))}
+                </div>
+                Usd
             </Col>
         </Row>
         <button className="btn-bg-content" onClick={toggleContent}> View More</button>

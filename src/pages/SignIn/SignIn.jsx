@@ -28,7 +28,7 @@ export default function SignIn() {
                   </div>
                   <div className='field input-field'>
                     <input type="password" placeholder='Password' className='password'/>
-                    <i class="bi bi-eye-slash eye-icon"></i>
+                    <i className="bi bi-eye-slash eye-icon"></i>
                   </div>
                   <div className='form-link'>
                     <a href="#" className='forgot-pass'>Forgot password?</a>
