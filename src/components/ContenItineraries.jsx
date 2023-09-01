@@ -44,7 +44,5 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
             {showActivities? (<Activities/>): ('')}
         </>
     </Container>
-        
-    
   )
 }
