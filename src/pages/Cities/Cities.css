@@ -93,6 +93,10 @@
     .message{
         font-size: 16px;
     }
+    .paragraph-cities{
+        margin-bottom: 1rem;
+        font-size: 18px;
+    }
 }
 @media only screen and (max-width: 992px)and (min-width: 851px){
     .search {
@@ -104,6 +108,14 @@
     }
     .cities{
         width: 800px;
+    }
+    .paragraph-cities{
+        margin-bottom: 1rem;
+        font-size: 18px;
+    }
+    .bg-notFound{
+        margin-left: 250px;
+        margin-top: 3rem;
     }
 }
 @media only screen and (min-width: 1024px){

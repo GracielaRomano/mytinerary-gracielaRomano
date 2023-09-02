@@ -141,7 +141,8 @@
 }
 .card-img{
   width: 7rem;
-  height: 8.2rem;
+  height: 9rem;
+  object-fit: cover;
 }
 .card-title-polaroid{
   font-size: 15px;
@@ -171,6 +172,52 @@
   }
   .container-carousel{
     margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 850px) and (min-width: 768px) {
+  .carousel{
+    width: 420px;
+    height: 360px;
+    margin-top: 1rem;
+  }
+  .container-carousel{
+    width: 450px;
+    margin-left: 150px;
+  }
+  .titulo-carousel{
+    margin-top: 2rem;
+  }
+  .card-img{
+    width: 10rem;
+    height: 10.5rem;
+    object-fit: cover;
+  }
+  .card-carousel{
+    width: 10rem;
+    margin: 8px;
+  }
+}
+@media only screen and (max-width: 992px)and (min-width: 851px){
+  .carousel{
+    width: 420px;
+    height: 360px;
+    margin-top: 1rem;
+  }
+  .container-carousel{
+    width: 450px;
+    margin-left: 200px;
+  }
+  .titulo-carousel{
+    margin-top: 2rem;
+  }
+  .card-img{
+    width: 10rem;
+    height: 10.5rem;
+    object-fit: cover;
+  }
+  .card-carousel{
+    width: 10rem;
+    margin: 8px;
   }
 }
 @media only screen and (min-width: 1024px){
@@ -567,6 +614,7 @@
 @media only screen and (max-width: 992px)and (min-width: 851px){
   .container-itineraries{
     width: 800px;
+    margin-left: 3rem;
   }
   .itineraries{
     width: 800px;
@@ -574,6 +622,11 @@
   .arrow-details{
     font-size: 23px;
     margin-left: 5px;
+  }
+  .btn-bg-details{
+    left: 350px;
+    height: 45px;
+    width: 200px;
   }
 }
 @media only screen and (min-width: 1024px){
@@ -699,6 +752,14 @@
     width: 23.5rem;
   }
 }
+@media only screen and (max-width: 992px)and (min-width: 851px){
+  .card-itineraries {
+    width: 23.5rem;
+  }
+  .bg-notFound-itineraries{
+    margin-left: 250px;
+  }
+}
 @media only screen and (min-width: 1024px){
   .bg-notFound-itineraries{
     width: 600px;
@@ -755,8 +816,20 @@
   cursor: pointer;
   margin-left: 4rem;
   text-align: center;
+  margin-top: 1rem;
 }
 @media screen and (max-width: 850px) and (min-width: 768px) {
+  .align-text{
+    text-align: center;
+  }
+  .paragraf-tags{
+    width: 95px;
+  }
+  .btn-bg-content{
+    margin-right: 4.5rem;
+  }
+}
+@media only screen and (max-width: 992px)and (min-width: 851px){
   .align-text{
     text-align: center;
   }
@@ -848,6 +921,11 @@
   width: 13rem;
   height: 16rem;
 }
+}
+@media only screen and (max-width: 992px)and (min-width: 851px){
+  .currency{
+    margin-top: 1rem;
+  }
 }
 @media only screen and (min-width: 1024px){
   .currency{
