@@ -2,14 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
+import { useSelector,useDispatch } from "react-redux";
 import Activities from './Activities'
 import Coin from './Coin';
 
-
-export default function ContenItineraries({user, photo, alt, tags, duration, price}) {
+export default function ContenItineraries({user, photo, alt, tags, duration, price, id}) {
     const [showActivities, setShowActivities] = useState(false);
-    const toggleContent=()=> {setShowActivities(!showActivities)}
+    const toggleContent=()=> {
+        setShowActivities(!showActivities)
+    }
     const oprice = Array.from({ length: price }, (_, index) => ({ valor: 0 }));
+    const resultNotFound = useSelector(store => store.activities.resultNotFound);
 
   return (
    <Container className='align-text'>
@@ -41,7 +44,24 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
         </Row>
         <button className="btn-bg-content" onClick={toggleContent}> View More</button>
         <>
-            {showActivities? (<Activities/>): ('')}
+        {resultNotFound && showActivities  ? (
+            <div className="bg-notFound-activities">
+              <div className="row">
+                <p className="message-activities">
+                  
+                  Oops! There are no activities for the selected itinerary
+                </p>
+              </div>
+            </div>
+            ) : (
+
+                <div
+                  className="itineraries"
+                  style={{ display: showActivities ? "flex" : "none" }}>
+                 <Activities itinerary_id = {id} />
+                  {/* {activities.map(each => <Activities key={each._id} photo={each.photo} name={each.name} id={each._id}/>)} */}
+                </div>
+            )}
         </>
     </Container>
   )
