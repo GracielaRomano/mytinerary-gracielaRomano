@@ -52,8 +52,7 @@ export default function Details({ src, alt, text, id, description, country}) {
           ) : (
             <div
               className="itineraries"
-              style={{ display: showItineraries ? "flex" : "none" }}
-            >
+              style={{ display: showItineraries ? "flex" : "none" }}>
               {itineraries.map((each) => (
                 <CardItineraries
                   key={each._id}
