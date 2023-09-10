@@ -1,42 +1,48 @@
-import { Link as Anchor } from "react-router-dom"
+import { Link as Anchor, Navigate } from "react-router-dom"
 import NavBar from "../../components/NavBar";
 import google from "/img/google.png";
 import facebook from "/img/facebook.png"
-import { useRef,useState } from "react";
+import { useState,useEffect } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from "react";
 import axios from "axios";
 import apiUrl from "../../apiUrl";
 import './SignUp.css'
 
 export default function SignUp() {
+  const [countries, setCountries] = useState([]);
+  const [formSuccess,setFormSuccess] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [file, setFile] = useState(null);
+  
 
-  const name = useRef();
-  const lastName = useRef();
-  const photo = useRef();
-  const country = useRef();
-  const mail = useRef();
-  const password = useRef();
+  useEffect(() => {
+    axios
+      .get('https://restcountries.com/v3.1/all?orderBy=name')  // Realiza una solicitud a la API de países ordenados alfabéticamente
+      .then((response) => {
+        // Extrae los nombres de los países de la respuesta
+        const countryNames = response.data.map((country) => country.name.common);
+        countryNames.sort()
+        setCountries(countryNames);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
- async function handleSignUp(){
-  try{
-    let data ={
-      name:name.current.value,
-      lastName: lastName.current.value,
-      photo: photo.current.value,
-      country: country.current.value,
-      mail: mail.current.value,
-      password: password.current.value
-    }
-   await axios.post(
-      apiUrl+'users/',
-      data
-    )
-    console.log(data);
-  } catch(err){
-    console.log(err)
-  }
-}
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event.currentTarget.files[0]);
+  };
+  
   return (
     <>
+    {formSuccess && (
+      <Navigate to="/SignIn" replace={true} />
+    )}
     <NavBar />
       <div className='container-signup'>
         <div className='row'>
@@ -47,44 +53,135 @@ export default function SignUp() {
             <div className='signup'>
               <div className='signup-content'>
                 <h3 className="title-signup">Sign Up</h3>
-                <form className="form-signup">
-                  <div className="row">
-                    <div className="grid-form">
-                      <div className='grid input-field'>
-                          <input ref={name} type="text" name='name' id='name' placeholder='Name' className='input'/>
+                <Formik
+                  initialValues={{
+                    name:'',
+                    lastName:'',
+                    photo:'',
+                    country:'',
+                    mail:'',
+                    password:''
+                  }}
+                  validate={(values) =>{
+                    let errors = {};
+                    console.log(values)
+                    console.log(file)
+                    if(!values.name){
+                      errors.name = "Please enter a name"
+                    }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)){
+                      errors.name='The name can only contain letters and spaces'
+                    }
+                    if(!values.lastName){
+                      values.lastName = ""
+                    }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastName)){
+                      errors.lastName='The lastname can only contain letters and spaces'
+                    }
+                    if(!values.mail){
+                      errors.mail = 'Please enter an email'
+                    }else if (! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.mail)){
+                      errors.mail = 'The email must have the format (algo@algo.com), it may contain letters, numbers,hyphens'
+                    }
+                    if(!values.password){
+                      errors.password = 'Please enter a password'
+                    }else if(!/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(values.password)){
+                      errors.password = 'The password must be 8 to 16 characters, at least one digit, at least one lowercase letter, and at least one uppercase letter,It may have other symbols'
+                    }
+                    if(!values.country){
+                      errors.country='Please enter a country'
+                    }
+                    return errors;
+                  }}
+                  onSubmit={async (values, {resetForm}) =>{
+                    try{
+                      let fileExist = false
+                      if (file && file.name){
+                        values.photo = 'http://localhost:8080/uploads/'+file.name
+                         fileExist = true
+                      }
+                      await axios.post(apiUrl+'auth/signup', values)
+
+                      if (fileExist) {
+                        const formData = new FormData();
+                        formData.append('photo', file);
+                        await axios.post(apiUrl+'auth/uploadphoto', formData);
+                      }
+                      resetForm();
+                      console.log('Formulario enviado')
+                      setFormSuccess(!formSuccess);
+                      setTimeout(()=> setFormSuccess(false), 5000)
+                    } catch(err){
+                      console.log(err)
+                      console.log(err.response.data.message)
+                      alert(err.response.data.message)
+                    }
+                  }}>
+                  {( {errors} ) => (
+                    <Form className="form-signup">
+                      <div className="row">
+                        <div className="grid-form">
+                          <div className='grid input-field'>
+                              <Field  type="text" name='name' id='name' placeholder='Name' className='input'/>
+                              <ErrorMessage name='name' component={()=> (
+                                <div className="errors">{errors.name}</div>
+                              )}/>
+                          </div>
+                          <div className='grid input-field'>
+                            <Field type="text" name='lastName' id='lastName' placeholder='Last Name' className='input'/>
+                            <ErrorMessage name='lastName' component={()=> (
+                                <div className="errors">{errors.lastName}</div>
+                              )}/>
+                          </div>
+                          <div className='grid input-field'>
+                            <input type="file" name="photo" id="photo" className="input" onChange={handleFileChange}/>
+                            <ErrorMessage name='photo' component={()=> (
+                                <div className="errors">{errors.photo}</div>
+                              )}/>
+                          </div>
+                          <div className='grid input-field'>
+                            <Field  name='country' id='country' as='select' className="select" >
+                              <option value="">Country</option>
+                              {countries.map((countryName) => (
+                                <option key={countryName} value={countryName}>
+                                  {countryName}
+                                </option>
+                              ))}
+                            </Field>
+                            <ErrorMessage name='country' component={()=> (
+                                <div className="errors">{errors.country}</div>
+                                )}/>
+                          </div>
+                          <div className='grid input-field'>
+                            <Field  type="email" name='mail' id='mail' placeholder='Email' className='input'/>
+                            <ErrorMessage name='mail' component={()=> (
+                                <div className="errors">{errors.mail}</div>
+                              )}/>
+                          </div>
+                          <div className='grid input-field'>
+                            <Field  type={showPassword ? "text" : "password"} name='password' id='password'placeholder='Password' className='password'/>
+                            <ErrorMessage name='password' component={()=> (
+                                <div className="errors">{errors.password}</div>
+                              )}/>
+                            <i className={`bi bi-eye${showPassword ? "" : "-slash"} eye-icon`}
+                              onClick={handleTogglePassword}></i>
+                          </div>
+                        </div>
                       </div>
-                      <div className='grid input-field'>
-                        <input ref={lastName} type="text" name='lastName' id='lastName' placeholder='Last Name' className='input'/>
+                      <div className='grid button-field'>
+                        <input className="buton-signup" type="submit" value="Sign Up"/>
+                        {formSuccess && <p className="exit">Form sent successfully!</p>}
                       </div>
-                      <div className='grid input-field'>
-                        <input ref={photo} type="text" name='photo' id='photo' placeholder='Photo' className='input'/>
-                      </div>
-                      <div className='grid input-field'>
-                        <input ref={country} type="text" name='country' id='country' placeholder='country' className='password'/>
-                      </div>
-                      <div className='grid input-field'>
-                        <input ref={mail} type="email" name='mail' id='mail' placeholder='Email' className='input'/>
-                      </div>
-                      <div className='grid input-field'>
-                        <input ref={password} type="password" placeholder='Password' className='password'/>
-                        <i className="bi bi-eye-slash eye-icon"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='grid button-field'>
-                    <input className="buton-signup" type="button" value="Sign Up" onClick={handleSignUp}/>
-                  </div>
-                </form>
+                    </Form>
+                  )}
+                </Formik>
                 <div className='form-link-signup'>
                     <span>Already have an account?</span><Anchor to='/SignIn' className='link-signup'>Login</Anchor>
                 </div>
               </div>
               <div className='line'></div>
-              
               <div className='media-options-signup'>
                 <a href='#' className='grid google'>
-                <img className="google-img" src ={google} />
-                   <span> Continue with Google </span>
+                  <img className="google-img" src ={google} />
+                  <span> Continue with Google </span>
                 </a>
               </div>
               <div className='media-options-signup'>
@@ -100,3 +197,4 @@ export default function SignUp() {
     </>
   )
 }
+
