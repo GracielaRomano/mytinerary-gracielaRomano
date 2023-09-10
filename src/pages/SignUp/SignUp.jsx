@@ -5,6 +5,7 @@ import facebook from "/img/facebook.png"
 import { useState,useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import React from "react";
+import Swal from "sweetalert2";
 import axios from "axios";
 import apiUrl from "../../apiUrl";
 import './SignUp.css'
@@ -106,13 +107,32 @@ export default function SignUp() {
                         await axios.post(apiUrl+'auth/uploadphoto', formData);
                       }
                       resetForm();
+                      Swal.fire({
+                        title: 'You registered successfully, go to login',
+                        width: 600,
+                        padding: '3em',
+                        color: '#716add',
+                        background: '#fff url(/images/trees.png)',
+                        backdrop: `
+                          rgba(0,0,123,0.4)
+                          url("/img/valija.gif")
+                          right top
+                          no-repeat
+                        `
+                      })
                       console.log('Formulario enviado')
                       setFormSuccess(!formSuccess);
                       setTimeout(()=> setFormSuccess(false), 5000)
                     } catch(err){
                       console.log(err)
                       console.log(err.response.data.message)
-                      alert(err.response.data.message)
+                      let alertError = err.response.data.message
+                      
+                      Swal.fire({
+                        title: 'Oops... something is not right!',
+                        icon:'error' ,
+                        html: '<img src="/img/error.gif" alt="Viajes"><br>'+alertError,
+                      })
                     }
                   }}>
                   {( {errors} ) => (
@@ -157,7 +177,8 @@ export default function SignUp() {
                               )}/>
                           </div>
                           <div className='grid input-field'>
-                            <Field  type={showPassword ? "text" : "password"} name='password' id='password'placeholder='Password' className='password'/>
+                            <Field  type={showPassword ? "text" : "password"} 
+                            name='password' id='password'placeholder='Password' className='password'/>
                             <ErrorMessage name='password' component={()=> (
                                 <div className="errors">{errors.password}</div>
                               )}/>

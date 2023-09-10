@@ -7,15 +7,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import store from '../store/store';
 import user_actions from "../store/actions/users";
 const { signout } = user_actions;
-
+import Swal from "sweetalert2";
 
 function NavBar() {
   const user = useSelector((store) => store.users.user);
   let dispatch = useDispatch();
 
   const handleSignOut = () => {
-    dispatch(signout());
-  };
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Leave it!'
+    }).then((result) => {
+      if (result.isConfirmed) 
+        dispatch(signout())
+    })
+  }
+  
   return (
     <Navbar collapseOnSelect expand="xl" className=" navbar-background">
       <Container>

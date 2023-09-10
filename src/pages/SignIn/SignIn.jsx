@@ -1,4 +1,4 @@
-import { useRef} from "react";
+import { useRef, useState} from "react";
 import { Link as Anchor, useNavigate } from "react-router-dom"
 import google from "/img/google.png";
 import facebook from "/img/facebook.png"
@@ -12,6 +12,7 @@ const { signin } = user_actions;
 
 
 export default function SignIn() {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const mail_signin = useRef("");
   const pass_signin = useRef("");
@@ -45,6 +46,9 @@ export default function SignIn() {
       console.error(err);
     });
   }
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   let user = useSelector(store=>store.users.user)
   console.log(user);
@@ -65,9 +69,11 @@ export default function SignIn() {
                     <input ref={mail_signin} type="email" name="mail_signin" id="mail_signin" defaultValue="" placeholder='Email' className='input'/>
                   </div>
                   <div className='field input-field'>
-                    <input ref={pass_signin} type="password" name="pass_signin" id="pass_signin" defaultValue="" placeholder='Password' className='password'/>
-                    <i className="bi bi-eye-slash eye-icon"></i>
-                  </div>
+                   <input ref={pass_signin} type={showPassword ? "text" : "password"} 
+                        name='password' id='password'placeholder='Password' className='password'/>
+                        <i className={`bi bi-eye${showPassword ? "" : "-slash"} eye-icon`}
+                          onClick={handleTogglePassword}></i>
+                      </div>
                   <div className='form-link'>
                     <a href="#" className='forgot-pass'>Forgot password?</a>
                   </div>
