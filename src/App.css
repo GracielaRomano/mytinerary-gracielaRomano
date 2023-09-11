@@ -41,6 +41,7 @@
   border: #0166a4 1px solid;
   border-radius: 10px;
   box-shadow: 2px 2px 3px #757576;
+  margin-left: 25px;
 }
 .logo{
   width: 50px;
@@ -85,7 +86,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 .name-user{
   width: 50px;
@@ -101,11 +102,31 @@
   padding: 5px;
   border-radius: 10px;
   margin-top: 10px;
+  margin-left: 30px;
   box-shadow: 2px 2px 3px #757576;
   cursor: pointer;
 }
 .btn-signout:hover{
   background-color: #fb6d10;
+  box-shadow: 3px 4px 3px #757576;
+}
+.btn-signout2{
+  width: 70px;
+  height: 30px;
+  font-size: 10px;
+  background-color: rgb(79, 2, 92);
+  color: #f9f9f9;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+  box-shadow: 2px 2px 3px #757576;
+  cursor: pointer;
+}
+.btn-signout2:hover{
+  background-color: rgb(130, 3, 155);
   box-shadow: 3px 4px 3px #757576;
 }
 .item{
@@ -146,6 +167,11 @@
     font-size: 15px;
     margin-left: 15px;
   }
+  .btn-signout2{
+    width: 75px;
+    font-size: 15px;
+    margin-left: 15px;
+  }
 }
 @media only screen and (max-width: 992px)and (min-width: 851px){
   .photo-user{
@@ -154,6 +180,11 @@
     height: 35px;
   }
   .btn-signout{
+    width: 75px;
+    font-size: 15px;
+    margin-left: 15px;
+  }
+  .btn-signout2{
     width: 75px;
     font-size: 15px;
     margin-left: 15px;
@@ -174,6 +205,14 @@
     font-weight: 500;
   }
   .btn-signout{
+    width: 65px;
+    height: 35px;
+    margin-left: 15px;
+    padding-top: 8px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .btn-signout2{
     width: 65px;
     height: 35px;
     margin-left: 15px;
@@ -667,7 +706,6 @@
 .arrow-details{
   font-size: 18px;
   float: left;
-  
   font-weight: bold;
 }
 .title-details{
@@ -697,9 +735,11 @@
   .container-itineraries{
     width: 800px;
     margin-top: 5rem;
+    margin-left: 0;
   }
   .itineraries{
     width: 800px;
+    margin-left: 0;
   }
   .arrow-details{
     font-size: 23px;
@@ -713,6 +753,7 @@
   }
   .itineraries{
     width: 800px;
+    margin-left: 0;
   }
   .arrow-details{
     font-size: 23px;
@@ -744,7 +785,7 @@
     margin-top: 5rem;
     margin-bottom: 3rem;
     width: 100%;
-    margin-bottom: 3rem;
+
   }
   .arrow-details{
     font-size: 23px;
@@ -802,7 +843,7 @@
 }
 .expanded-content {
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: rgb(248, 200, 248);
   /*background-color: rgb(248, 200, 248);*/
   font-size: 14px;
   color: #333;
@@ -844,13 +885,19 @@
     font-size: 30px;
   }
   .card-itineraries {
-    width: 23.5rem;
+    width: 21.5rem;
+    margin-left: 0;
+    margin-right: 1.5rem;
   }
+  
 }
 @media only screen and (max-width: 992px)and (min-width: 851px){
   .card-itineraries {
-    width: 23.5rem;
+    width: 22.5rem;
+    margin-left: 0;
+    margin-right: 1.3rem;
   }
+  
   .bg-notFound-itineraries{
     margin-left: 250px;
   }
@@ -890,6 +937,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  
 }
 .img-content{
   width: 30px;
@@ -942,6 +990,7 @@
   }
   .align-text{
     text-align: center;
+    
   }
   .paragraf-tags{
     width: 115px;
@@ -1052,19 +1101,26 @@
   background-repeat: no-repeat;
   background-size: 100%;
   color: rgb(130, 3, 155);
-  border: 1px solid rgb(130, 3, 155);
+  border: 15px solid transparent;
+  border-image: url(/img/fondoBorder.png) 20% round;
+  border-image-repeat: stretch;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items:normal;
   margin-top: 3rem;
-  
   margin-bottom: 3rem;
 }
 .message-activities{
   font-size: 12px;
   text-align: center;
+}
+.showactivities{
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
 }
 @media screen and (max-width: 850px) and (min-width: 768px) {
   .bg-notFound-activities{
@@ -1086,11 +1142,65 @@
 }
 @media only screen and (min-width: 1024px){
   .bg-notFound-activities{
-    width: 350px;
-    height: 310px;
+    width: 400px;
+    height: 350px;
     margin-left: 35px;
+    border: 30px solid transparent;
+    
   }
+  .showactivities{
+    width: 400px;
+    margin-top: 0;
+  }
+  
   .message-activities{
     font-size: 15px;
   }
 }
+/*----CARDACTIVITIES------*/
+.card-activities{
+  width: 12rem;
+  height: 15.5rem;
+  margin: 5px;
+  color: #f9f9f9;
+  border-color: transparent;
+  background-image:url('/img/footer-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.photo-activities{
+  width: 11rem;
+  height: 10rem;
+  margin: 5px;
+  margin-left: 8px;
+  object-fit: cover;
+}
+@media screen and (max-width: 850px) and (min-width: 768px) {
+  .card-activities{
+    width: 15rem;
+    height: 20rem;
+  }
+  .photo-activities{
+    width: 13.5rem;
+    height: 16rem;
+    margin-left: 12px;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .card-activities{
+    width: 18rem;
+    height: 22rem;
+    margin: 10px;
+    
+  }
+  .photo-activities{
+    width: 95%;
+    height: 18rem;
+    margin: 10px;
+    margin-left: 8px;
+    object-fit: cover;
+  }
+}
+

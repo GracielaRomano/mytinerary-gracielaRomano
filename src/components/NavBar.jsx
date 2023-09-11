@@ -17,7 +17,7 @@ function NavBar() {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -45,7 +45,6 @@ function NavBar() {
             { Object.keys(user).length > 0? (
               <>
                 <img className="photo-user" src={user.photo} alt="User" />
-                {/*<span className="name-user">{user.name}</span>*/}
                 <span className="btn-signout" onClick={handleSignOut}>Sign Out</span>
               </>
             ) : (

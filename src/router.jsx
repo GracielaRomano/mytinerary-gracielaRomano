@@ -6,6 +6,7 @@ import MainLayout from "./layouts/MainLayout"
 import SignIn from "./pages/SignIn/SignIn"
 import SignUp from "./pages/SignUp/SignUp"
 import NotFound from "./pages/NotFound"
+import Activities from "./components/Activities";
 
 
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     { path: "/signup", element: <SignUp />},
     { path: "/cities", element: <Cities /> },
     { path: "/city/:city_id", element: <CityDetails />},
+   
     
 ]);
 

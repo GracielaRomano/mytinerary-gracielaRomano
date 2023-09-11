@@ -1,10 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
-import { useSelector,useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Activities from './Activities'
 import Coin from './Coin';
+import Card from 'react-bootstrap/Card';
+import CardActivities from "./CardActivities";
+
+
 
 export default function ContenItineraries({user, photo, alt, tags, duration, price, id}) {
     const [showActivities, setShowActivities] = useState(false);
@@ -12,8 +16,9 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
         setShowActivities(!showActivities)
     }
     const oprice = Array.from({ length: price }, (_, index) => ({ valor: 0 }));
-    const resultNotFound = useSelector(store => store.activities.resultNotFound);
-
+    //const resultNotFound = useSelector(store => store.activities.resultNotFound);
+    // const [resultNotFound, setResultNotFound] = useState(false);
+   
   return (
    <Container className='align-text'>
         <Row >
@@ -42,26 +47,19 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
                 Usd
             </Col>
         </Row>
-        <button className="btn-bg-content" onClick={toggleContent}> View More</button>
+        <button className="btn-bg-content" onClick={toggleContent}> View Activities</button>
         <>
-        {resultNotFound && showActivities  ? (
-            <div className="bg-notFound-activities">
-              <div className="row">
-                <p className="message-activities">
-                  
-                  Oops! There are no activities for the selected itinerary
-                </p>
-              </div>
-            </div>
-            ) : (
+        {
 
                 <div
-                  className="itineraries"
+                  className="showactivities"
                   style={{ display: showActivities ? "flex" : "none" }}>
-                 <Activities itinerary_id = {id} />
-                  {/* {activities.map(each => <Activities key={each._id} photo={each.photo} name={each.name} id={each._id}/>)} */}
+  
+                    <Activities p_activities = {id} />
+        
                 </div>
-            )}
+                
+            }
         </>
     </Container>
   )
