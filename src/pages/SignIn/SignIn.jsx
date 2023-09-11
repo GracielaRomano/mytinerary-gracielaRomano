@@ -38,7 +38,7 @@ export default function SignIn() {
           icon: 'error',
           title: 'Oops...',
           text: 'Something went wrong!',
-          html: html
+          html: '<img src="/img/error.gif" alt="Viajes"><br>' +html
         })
       }
     })

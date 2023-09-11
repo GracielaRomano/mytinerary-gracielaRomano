@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Login from './Login';
 import user_actions from "../store/actions/users";
 const { signout } = user_actions;
+import Swal from "sweetalert2";
 
 
 
@@ -14,8 +15,19 @@ function NavbarTransparent() {
   let dispatch = useDispatch();
 
   const handleSignOut = () => {
-    dispatch(signout());
-  };
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Leave it!'
+    }).then((result) => {
+      if (result.isConfirmed) 
+        dispatch(signout())
+    })
+  }
   return (
     <Navbar collapseOnSelect expand="xl" className=" navbar-transparent">
       <Container>
@@ -34,11 +46,12 @@ function NavbarTransparent() {
               <>
                 <img className="photo-user" src={user.photo} alt="User" />
                 {/*<span className="name-user">{user.name}</span>*/}
-                <span className="btn-signout" onClick={handleSignOut}>Sign Out</span>
+                <span className="btn-signout2" onClick={handleSignOut}>Sign Out</span>
               </>
             ) : (
-            <Anchor to='/SignIn' className="btn btn-primary btn-login" type="submit">
+              <Anchor to='/SignIn' className="btn btn-primary btn-login" type="submit">
               <Login/>
+              Login
             </Anchor>
              )}
           </Nav>

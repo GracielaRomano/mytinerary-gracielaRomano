@@ -16,7 +16,7 @@ const activities_reducer = createReducer(
         let new_state = {
             ...state,
             activities: action.payload.activities,
-            resultNotFound: action.payload.activities.length === 0 // Actualizar el estado según la longitud de las ciudades
+            resultNotFound: action.payload.activities.length === 0 // Actualizar el estado según la longitud de las actividades
         }
      return new_state
     }
@@ -26,7 +26,7 @@ const activities_reducer = createReducer(
      (state, action) => {
          return {
              ...state,
-             activities: [], // Restablecer las ciudades a una lista vacía
+             activities: [], 
              resultNotFound: true // Establecer el estado como verdadero al producirse un error
          };
      }

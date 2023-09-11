@@ -5,6 +5,7 @@ import CardItineraries from './CardItineraries';
 import ContenItineraries from './ContenItineraries';
 import Features from './Features';
 import { useSelector,useDispatch } from "react-redux";
+
 import itinerary_actions from "../store/actions/itineraries"
 const { read_itineraries } = itinerary_actions
 
@@ -13,6 +14,7 @@ export default function Details({ src, alt, text, id, description, country}) {
     const resultNotFound = useSelector(store => store.itineraries.resultNotFound);
     const [showItineraries, setShowItineraries] = useState(false);
     const itineraries = useSelector(store=>store.itineraries.itineraries)
+    
     const dispatch = useDispatch()
 
     const toggleItineraries= ()=>{setShowItineraries(!showItineraries) }
@@ -21,7 +23,6 @@ export default function Details({ src, alt, text, id, description, country}) {
         dispatch(read_itineraries({city_id: id }))
       },[]
     )
-
     return (
       <>
         <div className="background-container" style={backgroundStyle}>
@@ -69,6 +70,7 @@ export default function Details({ src, alt, text, id, description, country}) {
                         price={each.price}
                         id={each._id}
                       />
+                      
                   }
                 />
               ))}
