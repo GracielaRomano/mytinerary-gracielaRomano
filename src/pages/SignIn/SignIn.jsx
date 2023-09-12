@@ -33,7 +33,15 @@ export default function SignIn() {
         })
                 navigate('/')
       } else {
-        let html = result.payload.messages[0].map(each=>`<p>${each[0].toUpperCase() + each.substr(1)}</p>`).join("") 
+        console.log( result.payload.messages)
+        let message = result.payload.messages[0]
+        let html =""
+        if (message.constructor === Array){
+           html = result.payload.messages[0].map(each=>`<p>${each[0].toUpperCase() + each.substr(1)}</p>`).join("") 
+        } else {
+           html =`<p>${message[0].toUpperCase() + message.substr(1)}</p>`
+        }
+
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
