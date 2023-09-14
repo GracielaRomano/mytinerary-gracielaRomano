@@ -1,21 +1,25 @@
 import { Link as Anchor, Navigate } from "react-router-dom"
 import NavBar from "../../components/NavBar";
-import google from "/img/google.png";
 import facebook from "/img/facebook.png"
 import { useState,useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import SignUpGoogle from "../../components/SignUpGoogle";
 import React from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import apiUrl from "../../apiUrl";
 import './SignUp.css'
+import { useSelector } from 'react-redux';
+import store from '../../store/store';
 
 export default function SignUp() {
+  const user = useSelector((store) => store.users.user);
+
   const [countries, setCountries] = useState([]);
   const [formSuccess,setFormSuccess] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [file, setFile] = useState(null);
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     axios
@@ -44,6 +48,14 @@ export default function SignUp() {
     {formSuccess && (
       <Navigate to="/SignIn" replace={true} />
     )}
+
+    { Object.keys(user).length >0 && Swal.fire({
+          title: 'Welcome to MyTinerary',
+          html: '<img src="/img/viajes.gif" alt="Viajes">',
+        }) && (
+      <Navigate to="/" replace={true} />
+    )}
+
     <NavBar />
       <div className='container-signup'>
         <div className='row'>
@@ -199,14 +211,18 @@ export default function SignUp() {
                 </div>
               </div>
               <div className='line'></div>
-              <div className='media-options-signup'>
+              <div className="google-button">
+                  <SignUpGoogle/>
+              </div>
+              
+              {/* <div className='media-options-signup'>
                 <a href='#' className='grid google'>
                   <img className="google-img" src ={google} />
                   <span> Continue with Google </span>
                 </a>
-              </div>
+              </div> */}
               <div className='media-options-signup'>
-                <a href='#' className='grid facebook'>
+                <a href='#' className='signup-facebook'>
                   <img className="facebook-icon" src ={facebook} />
                    <span> Continue with Facebook </span>
                 </a>

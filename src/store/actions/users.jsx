@@ -69,6 +69,29 @@ const signout = createAsyncThunk(
         }
     }
 )
+const authGoogle = createAsyncThunk(
+    'authGoogle',
+    async(obj) => {
+      try {
+        let data = await axios.post(apiUrl+'auth/google', obj.data);
+        localStorage.setItem('token', data.data.response.token);
+        return {
+          user: data.data.response.user,
+          token: data.data.response.token,
+          messages: []
+        };
+      } catch (error) {
+        console.log(error);
+        return {
+          user: {},
+          token: '',
+          messages: error.response.data.messages || [error.response.data.message]
+        };
+      }
+    }
+);
+  
+  const user_actions = {signin, signin_token, signout, authGoogle};
+  export default user_actions;
 
-const user_actions = {signin,signin_token,signout}
-export default user_actions
+

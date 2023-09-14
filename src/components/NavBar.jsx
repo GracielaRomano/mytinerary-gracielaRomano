@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Login from './Login';
 import { Link as Anchor } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import store from '../store/store';
 import user_actions from "../store/actions/users";
 const { signout } = user_actions;
@@ -27,7 +28,7 @@ function NavBar() {
         dispatch(signout())
     })
   }
-  
+
   return (
     <Navbar collapseOnSelect expand="xl" className=" navbar-background">
       <Container>
@@ -42,7 +43,7 @@ function NavBar() {
             <Anchor to='/Cities' className='links-nav item'>Cities</Anchor>
           </Nav>
           <Nav className='nav-buttons'>
-            { Object.keys(user).length > 0? (
+            { Object.keys(user).length > 0 ? (
               <>
                 <img className="photo-user" src={user.photo} alt="User" />
                 <span className="btn-signout" onClick={handleSignOut}>Sign Out</span>

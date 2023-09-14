@@ -1,15 +1,15 @@
 import { useRef, useState} from "react";
-import { Link as Anchor, useNavigate } from "react-router-dom"
-import google from "/img/google.png";
-import facebook from "/img/facebook.png"
-import './SignIn.css'
-import NavBar from "../../components/NavBar";
+import { Link as Anchor, useNavigate, Navigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
+import facebook from "/img/facebook.png"
+import NavBar from "../../components/NavBar";
+import SignInGoogle from "../../components/SignInGoogle";
+import './SignIn.css'
 import Swal from "sweetalert2";
 import user_actions from "../../store/actions/users"
 const { signin } = user_actions;
 
-
+import store from '../../store/store';
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +31,7 @@ export default function SignIn() {
           title: 'Welcome to MyTinerary',
           html: '<img src="/img/viajes.gif" alt="Viajes">',
         })
-                navigate('/')
+        navigate('/')
       } else {
         console.log( result.payload.messages)
         let message = result.payload.messages[0]
@@ -60,9 +60,16 @@ export default function SignIn() {
 
   let user = useSelector(store=>store.users.user)
   console.log(user);
+  
   return (
     <>
-        
+    { Object.keys(user).length >0 && Swal.fire({
+          title: 'Welcome to MyTinerary',
+          html: '<img src="/img/viajes.gif" alt="Viajes">',
+        }) && (
+      <Navigate to="/" replace={true} />
+    )}
+
      <NavBar />
      < div className='container-signin'>
         <div className='row'>
@@ -85,7 +92,7 @@ export default function SignIn() {
                   <div className='form-link'>
                     <a href="#" className='forgot-pass'>Forgot password?</a>
                   </div>
-                  <div className='field button-field'>
+                  <div className=' button-field'>
                     <input type="button" className="button-login" value="Login"  onClick={handleSignIn}></input>
                   </div>
                 </form>
@@ -94,15 +101,16 @@ export default function SignIn() {
                 </div>
               </div>
               <div className='line'></div>
-              
-              <div className='media-options'>
-                <a href='#' className='field google'>
+              <SignInGoogle/>
+               {/* <div className='media-options'>
+               
+                 <a href='#' className='field google'>
                 <img className="google-img" src ={google} />
                    <span> Continue with Google </span>
                 </a>
-              </div>
+              </div>  */}
               <div className='media-options'>
-                <a href='#' className='field facebook'>
+                <a href='#' className='facebook'>
                   <img className="facebook-icon" src ={facebook} />
                    <span> Continue with Facebook </span>
                 </a>
