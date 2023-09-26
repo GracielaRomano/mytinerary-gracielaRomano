@@ -10,7 +10,7 @@ import itinerary_actions from "../store/actions/itineraries"
 const { read_itineraries } = itinerary_actions
 
 export default function Details({ src, alt, text, id, description, country}) {    
-    const backgroundStyle = {backgroundImage: `url(${src})`};
+    const backgroundStyle = {backgroundImage: `url(${src})`, backgroundRepeat: 'no-repeat'};
     const resultNotFound = useSelector(store => store.itineraries.resultNotFound);
     const [showItineraries, setShowItineraries] = useState(false);
     const itineraries = useSelector(store=>store.itineraries.itineraries)
@@ -45,14 +45,12 @@ export default function Details({ src, alt, text, id, description, country}) {
             <div className="bg-notFound-itineraries">
               <div className="row">
                 <p className="message-itineraries">
-                  
                   Oops! There are no itineraries for the selected city
                 </p>
               </div>
             </div>
           ) : (
-            <div
-              className="itineraries"
+            <div className="itineraries"
               style={{ display: showItineraries ? "flex" : "none" }}>
               {itineraries.map((each) => (
                 <CardItineraries
@@ -70,7 +68,6 @@ export default function Details({ src, alt, text, id, description, country}) {
                         price={each.price}
                         id={each._id}
                       />
-                      
                   }
                 />
               ))}

@@ -4,7 +4,7 @@
   /*display: flex;
   align-items: center;
   justify-content: center;*/
-  background-image: url('/img/fondoTravel6.png');
+  background-image: url('/img/banner1.1.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -106,7 +106,7 @@
 .title-signIn{
   text-align: center;
   margin-top: 1rem;
-  color: #fff;
+  color: #024874;
   font-family:  'myTinerary';
   font-size: 45px;
   margin-bottom: 1.5rem;

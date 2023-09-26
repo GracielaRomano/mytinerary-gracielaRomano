@@ -1,5 +1,5 @@
 .main{
-    background-image: url('/img/fondoTravel5.png');
+    background-image: url('/img/china.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -11,38 +11,49 @@
     margin-left: 5px;
     margin-right: 0;
     margin-top: 5rem;
+    background-color: rgba(212, 209, 209, 0.1);
+    border: 1px solid rgb(212, 209, 209);
 }
 .card-home{
     width: 350px;
     height: 450px;
     margin-bottom: 3rem;
-    border-color: cornsilk;
     margin-top: 10px;
-    background-color:cornsilk ;
     margin-left: 10px;
+    background-color: transparent;
+    border: transparent;
+}
+.card-header{
+  font-family:'myTinerary' ;
+  font-weight: 400;
+  font-size: 45px;
+  color: #024975;
+  background-color: transparent;
+  border: 0;
 }
 .card-header-home{
     height: 70px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 15px;
     line-height: 63px;
     color: black;
-    background-color: cornsilk;
-    border-bottom: rgb(233, 223, 212) 1px solid;
+    border: transparent;
+    /*background-color: cornsilk;*/
+    /*border-bottom: rgb(233, 223, 212) 1px solid;*/
     text-align: center;
 }
 .card-text-home{
     font-size: 15px;
     font-weight: 600;
     line-height: 31px;
-    color: grey;
-    margin-top: 2rem;
+    color: black;
+    margin-top: 1rem;
 }
   
   /*** ESTILOS BOTÓN DE LA CARD DE HOME ***/
 .ov-btn-slide-left {
     bottom:5px;
-    width: 250px;
+    width: 200px;
     height: 50px;
     background-color: #0166a4; 
     color: #FFFFFF;
@@ -62,7 +73,8 @@
 }
 .ov-btn-slide-left::after {
     content: "";
-    background-image: linear-gradient(210.41deg, #007cc9 1.14%, #ffa739 100.75%);  
+    background-image: linear-gradient(210.41deg, #007cc9 1.14%, #ffa739 100.75%); 
+    background-image: linear-gradient(210.41deg, #00253b 1.14%,  #0393ed 100.75%); 
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
@@ -86,9 +98,9 @@
     font-size: 20px;
     font-weight: bold;
     font-family: cursive;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 30px;
-    color: #ff9900;
+    color: #024874;
 }
 @media only screen and (min-width: 600px){
     .container-home{
@@ -123,6 +135,7 @@
       width: 90%;
       margin-left: 30px;
       margin-right: 30px;
+     
     }
     .card-home{
       margin-left: 120px;
@@ -131,31 +144,36 @@
 }
 @media only screen and (min-width: 1024px){
     .container-home{
-      width: 1200px;
+      width: 1000px;
       height: 500px;
-      margin-top: 300px;
+      margin-top: 200px;
       margin-left: 150px;
       margin-right:100px;
-      margin-bottom: 30rem;
+      margin-bottom: 25rem;
+      background-color: rgba(212, 209, 209, 0.5);
+      /*border: 1px solid white;*/
+      
     }
     .card-home{
-      width: 700px;
+      width: 550px;
       height: 450px;
       margin-left: 10px;
       margin-top: 10px;
+      
     }
     .card-header-home{
-      font-size: 48px;
+      font-size: 30px;
     }
     .card-text-home{
-      font-size: 20px;
+      font-size: 15px;
+      margin-top: 0.5rem;
     }
     .ov-btn-slide-left{
-      width: 300px;
+      width: 250px;
       height: 60px;
       font-size: 20px;
-      padding-bottom: 20px;
-      bottom:-50px;
+      padding-bottom: 30px;
+      bottom:-20px;
       float: left;
     }
 }

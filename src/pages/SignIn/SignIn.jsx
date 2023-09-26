@@ -81,7 +81,8 @@ export default function SignIn() {
                 <h3 className='title-login'>Login</h3>
                 <form className='form-login'>
                   <div className='field input-field'>
-                    <input ref={mail_signin} type="email" name="mail_signin" id="mail_signin" defaultValue="" placeholder='Email' className='input'/>
+                    <input ref={mail_signin} type="email" name="mail_signin" id="mail_signin"
+                        defaultValue="" placeholder='Email' className='input'/>
                   </div>
                   <div className='field input-field'>
                    <input ref={pass_signin} type={showPassword ? "text" : "password"} 
@@ -102,13 +103,6 @@ export default function SignIn() {
               </div>
               <div className='line'></div>
               <SignInGoogle/>
-               {/* <div className='media-options'>
-               
-                 <a href='#' className='field google'>
-                <img className="google-img" src ={google} />
-                   <span> Continue with Google </span>
-                </a>
-              </div>  */}
               <div className='media-options'>
                 <a href='#' className='facebook'>
                   <img className="facebook-icon" src ={facebook} />
