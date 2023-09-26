@@ -4,7 +4,7 @@
   /*display: flex;
   align-items: center;
   justify-content: center;*/
-  background-image: url('/img/fondoTravel6.png');
+  background-image: url('/img/banner1.1.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -35,8 +35,16 @@
   margin-right: 10px;
   border-radius: 20px;
 }
+.facebook{
+  position: relative;
+  height:40px;
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
 .button-login{
-  height: 100%;
+  height: 40px;
   width: 100%;
   border: none;
   font-size: 16px;
@@ -98,7 +106,7 @@
 .title-signIn{
   text-align: center;
   margin-top: 1rem;
-  color: #fff;
+  color: #024874;
   font-family:  'myTinerary';
   font-size: 45px;
   margin-bottom: 1.5rem;
@@ -133,11 +141,11 @@ a.facebook{
   background-color: #4267b2;
 }
 a.facebook .facebook-icon{
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   color: #0171d3;
   background-color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 50%;
 }
 img.facebook-icon,

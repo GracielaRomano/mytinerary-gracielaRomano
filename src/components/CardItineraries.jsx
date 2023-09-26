@@ -13,6 +13,7 @@ export default function CardItineraries({ title, imageSrc, content, id }) {
   const [like, setLike] =useState(0);
   const [isLike, setIsLike] = useState(false)
   const user = useSelector((store) => store.users.user);
+  
   const onLikeButton = () => {
     if( Object.keys(user).length > 0){
     setLike(like + (isLike ? -1 :1));

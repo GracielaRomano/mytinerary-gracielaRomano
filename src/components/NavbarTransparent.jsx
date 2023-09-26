@@ -38,8 +38,8 @@ function NavbarTransparent() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
-            <Anchor to='/' className='links-nav item'>Home</Anchor>
-            <Anchor to='/Cities' className='links-nav item'>Cities</Anchor>
+            <Anchor to='/' className='links-nav item2'>Home</Anchor>
+            <Anchor to='/Cities' className='links-nav item2'>Cities</Anchor>
           </Nav>
           <Nav>
           { Object.keys(user).length > 0? (

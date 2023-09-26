@@ -1,24 +1,22 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState} from "react";
+import { useSelector} from 'react-redux';
 import Activities from './Activities'
 import Coin from './Coin';
-import Card from 'react-bootstrap/Card';
-import CardActivities from "./CardActivities";
-
-
+import Comments from './Comments';
+import SendComment from './SendComment';
 
 export default function ContenItineraries({user, photo, alt, tags, duration, price, id}) {
+    const currentUser = useSelector((store) => store.users.user);
     const [showActivities, setShowActivities] = useState(false);
+    
     const toggleContent=()=> {
         setShowActivities(!showActivities)
     }
     const oprice = Array.from({ length: price }, (_, index) => ({ valor: 0 }));
-    //const resultNotFound = useSelector(store => store.activities.resultNotFound);
-    // const [resultNotFound, setResultNotFound] = useState(false);
-   
+
   return (
    <Container className='align-text'>
         <Row >
@@ -47,20 +45,34 @@ export default function ContenItineraries({user, photo, alt, tags, duration, pri
                 Usd
             </Col>
         </Row>
-        <button className="btn-bg-content" onClick={toggleContent}> View Activities</button>
+        <button className="btn-bg-content" onClick={toggleContent}>
+             View Activities</button>
         <>
-        {
-
+            {
+                <>
                 <div
-                  className="showactivities"
-                  style={{ display: showActivities ? "flex" : "none" }}>
-  
+                    className="showactivities"
+                    style={{ display: showActivities ? "flex" : "none" }}>
                     <Activities p_activities = {id} />
-        
-                </div>
+
+                    <h6 className='title-comments'>Comments</h6>
+                    <Comments p_itinerary_id = {id} currentUser = {currentUser} /> 
+                </div> 
                 
+                </>
             }
         </>
+        <>
+        { Object.keys(currentUser).length > 0 ? (
+            <SendComment p_itinerary_id = {id} currentUser = {currentUser}/>
+        ):(
+            <div></div>
+        )
+
+        }
+</>
+        
+        
     </Container>
   )
 }

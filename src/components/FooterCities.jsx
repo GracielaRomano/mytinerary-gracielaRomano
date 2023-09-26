@@ -13,10 +13,10 @@ export default function FooterCities() {
                 <Col sm={12} md={4} lg={4}>
                     <ul className="list-unstyled">
                         <li>
-                            <Anchor to={'/'} className="links-footer">Home</Anchor>
+                            <Anchor to={'/'} className="links-footer2">Home</Anchor>
                         </li>
                         <li>
-                            <Anchor to={'/Cities'} className="links-footer">Cities</Anchor>
+                            <Anchor to={'/Cities'} className="links-footer2">Cities</Anchor>
                         </li>
                     </ul>
                 </Col>
@@ -27,7 +27,7 @@ export default function FooterCities() {
                     </div>
                 </Col>
                 <Col sm={12} md={4} lg={4}>
-                    <div className="social-icon-cities">
+                    <div className="social-icon2-cities">
                         <a href=""><img src ={facebook} /></a>
                         <a href=""><img src ={twitter} /></a>
                         <a href=""><img src ={instagram} /></a>
